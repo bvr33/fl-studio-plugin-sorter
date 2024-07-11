@@ -19,9 +19,10 @@ function start() {
   const filterFIles = readdirSync(INPUT_FILES_PATH).filter(
     (file) => path.extname(file).toLowerCase() == '.nfo'
   )
+
   filterFIles.forEach((nfoFile) => {
     const pluginName = createPluginNameWithExtension(getPluginName(nfoFile))
-    const vendorName = getVendorName(INPUT_FILES_PATH, nfoFile)
+    const vendorName = getVendorName(INPUT_FILES_PATH, nfoFile).replace(',', ' ').replace('.', ' ')
 
     if (!createVendorFolder(`${OUTPUT_FILES_PATH}/@byVendor`, vendorName)) return
     if (!existsSync(`${INPUT_FILES_PATH}/${pluginName}`)) return
