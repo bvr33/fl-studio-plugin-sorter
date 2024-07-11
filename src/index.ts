@@ -22,7 +22,7 @@ function start() {
 
   filterFIles.forEach((nfoFile) => {
     const pluginName = createPluginNameWithExtension(getPluginName(nfoFile))
-    const vendorName = getVendorName(INPUT_FILES_PATH, nfoFile).replace(',', ' ').replace('.', ' ')
+    const vendorName = getVendorName(INPUT_FILES_PATH, nfoFile).replace(',', ' ').replace('.', ' ').replace('  ',' ').trim()
 
     if (!createVendorFolder(`${OUTPUT_FILES_PATH}/@byVendor`, vendorName)) return
     if (!existsSync(`${INPUT_FILES_PATH}/${pluginName}`)) return
