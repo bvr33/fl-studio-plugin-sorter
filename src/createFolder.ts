@@ -1,8 +1,6 @@
 import { existsSync, mkdirSync } from 'fs'
-import { createMainFolder } from './createMainFolder.js'
 
-export function createVendorFolder(path: string, folderName: string): boolean {
-  createMainFolder()
+export function createFolder(path: string, folderName: string): boolean {
   try {
     if (!existsSync(`${path}/${folderName}`)) {
       mkdirSync(`${path}/${folderName}`)
